@@ -76,50 +76,50 @@ const IDCard = forwardRef(({ data, photoPreview, onPhotoClick }, ref) => {
             <div className="info-fields">
               <div className="info-row">
                 <span className="info-label">आई कार्ड संख्या</span>
-                <span className="info-separator">: ......</span>
+                <span className="info-separator">:</span>
                 <span className="info-value">{cardNo}</span>
               </div>
               <div className="info-row">
                 <span className="info-label">नाम</span>
-                <span className="info-separator">: ......</span>
+                <span className="info-separator">:</span>
                 <span className="info-value">{name}</span>
               </div>
               <div className="info-row">
                 <span className="info-label">पद</span>
-                <span className="info-separator">: ......</span>
+                <span className="info-separator">:</span>
                 <span className="info-value">{designation}</span>
               </div>
               <div className="info-row">
                 <span className="info-label">कार्यक्षेत्र</span>
-                <span className="info-separator">: ......</span>
+                <span className="info-separator">:</span>
                 <span className="info-value">{area}</span>
               </div>
               <div className="info-row">
                 <span className="info-label">पता</span>
-                <span className="info-separator">: ......</span>
+                <span className="info-separator">:</span>
                 <span className="info-value">{address}</span>
               </div>
               <div className="info-row">
                 <span className="info-label">मो. नं</span>
-                <span className="info-separator">: ......</span>
+                <span className="info-separator">:</span>
                 <span className="info-value">{mobile}</span>
               </div>
             </div>
 
             {/* PENS */}
             <div className="pen-left">
-              <svg viewBox="0 0 100 20" width="80" height="16">
+              {/* <svg viewBox="0 0 100 20" width="80" height="16">
                 <rect x="0" y="7" width="75" height="4" fill="#5d4037" rx="2" />
                 <rect x="75" y="5" width="18" height="8" fill="#ffd700" rx="1" />
                 <polygon points="93,7 100,9 93,11" fill="#ffd700" />
-              </svg>
+              </svg> */}
             </div>
             <div className="pen-right">
-              <svg viewBox="0 0 100 20" width="80" height="16">
+              {/* <svg viewBox="0 0 100 20" width="80" height="16">
                 <rect x="22" y="7" width="75" height="4" fill="#5d4037" rx="2" />
                 <rect x="7" y="5" width="15" height="8" fill="#ffd700" rx="1" />
                 <polygon points="7,7 0,9 7,11" fill="#ffd700" />
-              </svg>
+              </svg> */}
             </div>
           </div>
 
