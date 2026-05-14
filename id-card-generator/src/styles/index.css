@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&display=swap');
+
+:root {
+  --primary-red: #c62828;
+  --dark-red: #b71c1c;
+  --light-red: #e53935;
+  --accent-blue: #1a237e;
+  --text-dark: #333;
+  --border-color: #000;
+  --oval-bg: #ffab91;
+  --stamp-purple: #9c27b0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: var(--text-dark);
+}
+
+/* APP LAYOUT */
+.app-container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+.app-header { text-align: center; margin-bottom: 30px; color: white; }
+.app-header h1 { font-size: 32px; margin-bottom: 5px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+.app-header p { font-size: 16px; opacity: 0.9; }
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 30px;
+  align-items: start;
+}
+@media (max-width: 1100px) {
+  .app-layout { grid-template-columns: 1fr; }
+}
+
+/* PANELS */
+.form-panel, .preview-panel {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+.panel-header {
+  background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+  color: white;
+  padding: 15px 20px;
+}
+.panel-header h2 { font-size: 20px; font-weight: 700; }
+.form-content { padding: 25px; }
+.preview-area {
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  background: #f5f5f5;
+  min-height: 600px;
+}
+
+/* FORM */
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #555;
+}
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-red);
+  box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.1);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.photo-group { text-align: center; }
+.photo-upload-box {
+  width: 120px;
+  height: 150px;
+  border: 3px dashed var(--primary-red);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0 auto;
+  background: #fafafa;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+.photo-upload-box:hover {
+  background: #ffebee;
+  border-color: var(--dark-red);
+}
+.photo-preview-thumb { width: 100%; height: 100%; object-fit: cover; }
+.photo-placeholder { text-align: center; color: var(--primary-red); }
+.photo-placeholder span { font-size: 32px; display: block; margin-bottom: 5px; }
+.photo-placeholder p { font-size: 12px; font-weight: 600; }
+.hidden-input { display: none; }
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  transition: all 0.3s;
+  text-align: center;
+}
+.btn-primary {
+  background: var(--primary-red);
+  color: white;
+}
+.btn-primary:hover {
+  background: var(--dark-red);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(198, 40, 40, 0.3);
+}
+.btn-secondary {
+  background: #1565c0;
+  color: white;
+}
+.btn-secondary:hover {
+  background: #0d47a1;
+  transform: translateY(-2px);
+}
+
+/* ID CARD */
+.id-card-wrapper {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.id-card {
+  width: 600px;
+  background: white;
+  border: 2px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Noto Sans Devanagari', 'Mangal', 'Kokila', 'Arial Unicode MS', sans-serif;
+}
+
+/* Top Red Curve - Diagonal Corner */
+.top-curve {
+  position: absolute;
+  top: -45px;
+  left: -45px;
+  width: 190px;
+  height: 190px;
+  background: var(--light-red);
+  border-radius: 50%;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-bottom: 55px;
+  padding-right: 35px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+.top-curve span {
+  color: #ffeb3b;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  transform: rotate(-40deg);
+  font-family: 'Arial Black', Arial, sans-serif;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 18px 20px 12px 130px;
+  position: relative;
+  z-index: 50;
+  border-bottom: 1px solid #eee;
+}
+
+/* Logo Below Registration Number (only logo in header) */
+.logo-below-reg {
+  position: absolute;        /* right side pe chipka diya */
+  top: 12px;          /* reg no. ke neeche */
+  width: 95px;        /* pehle 45px tha, ab 65px */
+  height: 65px;       /* square shape */
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-below-reg-img { 
+  width: 150%; 
+  height: 180%; 
+  object-fit: contain; 
+}
+.logo-below-reg-fallback {
+  width: 118px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reg-no {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: var(--primary-red);
+  font-size: 13px;
+  font-weight: 700;
+  z-index: 60;
+}
+
+.org-name {
+  color: var(--primary-red);
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+.org-subtitle {
+  color: var(--accent-blue);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.contact-info {
+  font-size: 11px;
+  color: #444;
+  line-height: 1.5;
+  font-family: Arial, sans-serif;
+}
+
+/* Card Body */
+.card-body { padding: 15px 30px 15px; position: relative; }
+
+/* Oval - Logo in center (globe removed) */
+.oval-container {
+  position: relative;
+  width: 100%;
+  height: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* .oval-bg {
+  position: absolute;
+  width: 530px;
+  height: 250px;
+  background: linear-gradient(135deg, #ffab91 0%, #ffccbc 100%);
+  border-radius: 50%;
+  border: 3px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+} */
+
+/* Logo inside oval (replaces blue globe) */
+.oval-logo {
+    width: 106vmin;
+    height: 126vmin;
+    padding-top: 156px;
+    padding-left: -10px;
+    object-fit: revert-rule;
+    opacity: 0.3;
+    z-index: 5;
+}
+
+/* Photo */
+.photo-area {
+  position: absolute;
+  left: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 115px;
+  height: 145px;
+  border: 3px solid var(--primary-red);
+  background: rgba(255,255,255,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 80;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.member-photo { width: 100%; height: 100%; object-fit: cover; }
+.photo-placeholder-card {
+  text-align: center;
+  color: var(--primary-red);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.photo-placeholder-card span { font-size: 28px; display: block; margin-bottom: 5px; }
+
+/* Info Fields */
+.info-fields {
+  position: absolute;
+  left: 175px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 80;
+  width: 380px;
+}
+.info-row {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 6px;
+  font-size: 15px;
+  line-height: 1.3;
+}
+.info-label {
+  color: var(--primary-red);
+  font-weight: 800;
+  min-width: 110px;
+  font-family: 'Noto Sans Devanagari', 'Mangal', sans-serif;
+  font-size: 15px;
+}
+.info-separator {
+  color: var(--primary-red);
+  margin-right: 8px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+.info-value {
+  color: var(--accent-blue);
+  font-weight: 700;
+  flex: 1;
+  border-bottom: 1px dotted var(--accent-blue);
+  padding-bottom: 1px;
+  min-height: 18px;
+  font-family: 'Noto Sans Devanagari', 'Mangal', sans-serif;
+  word-break: break-word;
+}
+
+/* Pens */
+.pen-left, .pen-right {
+  position: absolute;
+  bottom: 25px;
+  z-index: 70;
+}
+.pen-left { left: 25px; transform: rotate(-25deg); }
+.pen-right { right: 25px; transform: rotate(25deg); }
+
+/* Stamps */
+/* Signature image only - no stamp circle */
+/* Stamps - Left & Right side layout */
+.stamps-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 15px 40px 5px;
+  margin-top: 5px;
+  position: relative;
+} 
+
+.stamp-box-left {
+  text-align: center;
+  display: fit-content;
+  flex-direction: column;
+  align-items: center;
+} 
+
+.stamp-box-right {
+  text-align: center;
+  display: fit-content;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Signature image - side by side */
+/* .signature-img-side {
+  width: 180px !important;      
+  height: 120px !important;     
+  object-fit: contain;
+  display: block;
+  min-width: 180px;            
+  min-height: 120px;
+} */
+
+.signature-line-side {
+  width: 180px !important;
+  height: 25px;
+  border-bottom: 1px solid #333;
+  margin: 8px 5px 20px 5px;
+}
+
+
+/* Bottom Section */
+.bottom-section {
+  border-top: 2px solid var(--border-color);
+  padding: 15px 25px;
+  background: white;
+}
+.registration-text {
+  text-align: center;
+  font-size: 17px;
+  color: var(--accent-blue);
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-family: 'Noto Sans Devanagari', 'Mangal', sans-serif;
+}
+.highlight {
+  text-decoration: underline;
+  color: var(--accent-blue);
+  font-weight: 800;
+}
+.validity-box { text-align: center; margin-bottom: 15px; }
+.validity-text {
+  display: inline-block;
+  border: 2px solid var(--primary-red);
+  padding: 6px 25px;
+  border-radius: 25px;
+  color: var(--primary-red);
+  font-weight: 800;
+  font-size: 14px;
+  background: white;
+}
+.terms-title {
+  text-align: center;
+  color: var(--primary-red);
+  font-size: 20px;
+  font-weight: 800;
+  text-decoration: underline;
+  margin-bottom: 12px;
+}
+.terms-list {
+  font-size: 13px;
+  color: #333;
+  line-height: 1.7;
+  padding-left: 22px;
+  font-family: 'Noto Sans Devanagari', 'Mangal', sans-serif;
+  text-align: justify;
+}
+.terms-list li { margin-bottom: 10px; }
+.footer-contact {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 1px solid #ddd;
+  font-size: 13px;
+  color: #333;
+  font-weight: 700;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.footer-contact span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+/* Print */
+@media print {
+  body { background: white; }
+  .app-header, .form-panel { display: none !important; }
+  .app-layout { grid-template-columns: 1fr; }
+  .preview-panel { box-shadow: none; background: white; }
+  .preview-area { background: white; padding: 0; }
+  .id-card-wrapper { box-shadow: none; padding: 0; }
+}
+
+/* Responsive Card */
+@media (max-width: 700px) {
+  .id-card { width: 100%; max-width: 600px; }
+  .oval-bg { width: 95%; height: 220px; }
+  .info-fields { left: 150px; width: 55%; }
+  .info-label { min-width: 90px; font-size: 13px; }
+  .info-value { font-size: 13px; }
+}
