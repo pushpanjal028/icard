@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import html2canvas from 'html2canvas'
+
 
 
 const IDCard = forwardRef(({ data, photoPreview, onPhotoClick }, ref) => {
@@ -154,7 +154,7 @@ const IDCard = forwardRef(({ data, photoPreview, onPhotoClick }, ref) => {
           {/* BOTTOM SECTION */}
           <div className="bottom-section">
             <div className="registration-text">
-              आज दिनांक <span className="highlight">{regDate || '30/11/2006'}</span> को वही स. <span className="highlight">4</span> जिल्द स. <span className="highlight">281</span><br />
+              आज दिनांक <span className="highlight">30/11/2006</span> को वही स. <span className="highlight">4</span> जिल्द स. <span className="highlight">281</span><br />
               पृष्ठ स. <span className="highlight">95</span> से <span className="highlight">122</span> पर क्रमांक <span className="highlight">547</span> रजिस्ट्रीकृत किया गया है।
             </div>
 

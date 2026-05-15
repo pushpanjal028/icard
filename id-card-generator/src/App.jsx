@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback } from 'react'
 import IDCard from './components/IDCard'
-import html2canvas from 'html2canvas'
-
+// import html2canvas from 'html2canvas'
+import domtoimage from 'dom-to-image'
 function App() {
   // Form State
   const [formData, setFormData] = useState({
@@ -48,26 +48,37 @@ function App() {
     return `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`
   }
 
-  const downloadCard = useCallback(async () => {
-    if (!cardRef.current) return
-    try {
-      const canvas = await html2canvas(cardRef.current, {
-        scale: 3,
-        useCORS: true,
-        allowTaint: true,
-        backgroundColor: '#ffffff',
-        logging: false
-      })
+  
 
-      const link = document.createElement('a')
-      link.download = `ID_Card_${formData.name || 'Vishwa_Patrakar'}.png`
-      link.href = canvas.toDataURL('image/png', 1.0)
-      link.click()
-    } catch (err) {
-      console.error('Download failed:', err)
-      alert('Error generating image. Please try again.')
-    }
-  }, [formData.name])
+const downloadCard = useCallback(async () => {
+  if (!cardRef.current) return
+  
+  // Wait for images
+  await new Promise(resolve => setTimeout(resolve, 1000))
+  
+  try {
+    // Wrapper se download karo, card se nahi
+    const dataUrl = await domtoimage.toPng(cardRef.current, {
+      quality: 1,
+      bgcolor: '#ffffff',
+      width: cardRef.current.offsetWidth + 30,    /* ← padding include */
+      height: cardRef.current.offsetHeight + 30,
+      style: {
+        margin: '15px',        /* ← force margin */
+        padding: '15px',       /* ← force padding */
+        backgroundColor: 'white'
+      }
+    })
+    
+    const link = document.createElement('a')
+    link.download = `ID_Card_${formData.name || 'Vishwa_Patrakar'}.png`
+    link.href = dataUrl
+    link.click()
+  } catch (err) {
+    console.error('Download failed:', err)
+    alert('Error generating image. Please try again.')
+  }
+}, [formData.name])
 
   const printCard = () => {
     window.print()
@@ -112,7 +123,7 @@ function App() {
 
             <div className="form-row">
               <div className="form-group">
-                <label>ID Card No (आई कार्ड सौं)</label>
+                <label>ID Card No (आई कार्ड संख्या)</label>
                 <input
                   type="text"
                   name="cardNo"
@@ -179,7 +190,7 @@ function App() {
                 />
               </div>
               <div className="form-group">
-                <label>Reg Date</label>
+                <label>Reg Date (पंजीकरण तिथि)</label>
                 <input
                   type="text"
                   name="regDate"
