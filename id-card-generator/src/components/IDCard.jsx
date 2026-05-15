@@ -1,4 +1,6 @@
 import { forwardRef } from 'react'
+import html2canvas from 'html2canvas'
+
 
 const IDCard = forwardRef(({ data, photoPreview, onPhotoClick }, ref) => {
   const {
@@ -132,19 +134,19 @@ const IDCard = forwardRef(({ data, photoPreview, onPhotoClick }, ref) => {
               <img
                 src="/signature1.png"
                 alt="Signature"
-                style={{ width: '260px', height: '100px', objectFit: 'contain', display: 'block' }}
+                style={{ width: '178px', height: '71px', objectFit: 'contain', display: 'block' }}
               />
-              <div style={{ width: '260px', height: '20px', borderBottom: '1px solid #333', marginTop: '5px' }}></div>
+              <div style={{ width: '158px', height: '3px', borderBottom: '1px solid #333', marginTop: '5px' }}></div>
               <div className="stamp-title">हस्ता० राष्ट्रीय महासचिव/ट्रस्टी</div>
             </div>
             <div className="stamp-box-right">
               <img
                 src="/signature2.png"
                 alt="Signature"
-                style={{ width: '200px', height: '100px', objectFit: 'contain', display: 'block' }}
+                style={{ width: '178px', height: '71px', objectFit: 'contain', display: 'block' }}
                 onError={(e) => e.target.style.display = 'none'}
               />
-              <div style={{ width: '200px', height: '20px', borderBottom: '1px solid #333', marginTop: '5px' }}></div>
+              <div style={{ width: '158px', height: '3px', borderBottom: '1px solid #333', marginTop: '5px' }}></div>
               <div className="stamp-title">हस्ता० राष्ट्रीय अध्यक्ष/संस्थापक</div>
             </div>
           </div>
