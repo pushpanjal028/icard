@@ -44,6 +44,7 @@ const IDCard = forwardRef(({ data, photoPreview, onPhotoClick }, ref) => {
           <div className="org-name">विश्व पत्रकार महासंघ </div>
           <div className="org-subtitle">(पत्रकारों का वैश्विक पंजीकृत संगठन)</div>
           <div className="contact-info">
+            <div className="org-subbtitle"><h3>वरिष्ठ नागरिक अधिकार मंच</h3> </div>
             E-mail:info.vpm2006@gmail.com | WebSite: vpmh.org<br />
             Office No.: 7084250799, 6393287185
           </div>
