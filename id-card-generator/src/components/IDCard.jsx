@@ -35,6 +35,7 @@ const IDCard = forwardRef(({ data, photoPreview, onPhotoClick }, ref) => {
               <svg viewBox="0 0 100 100" width="45" height="45">
                 <circle cx="50" cy="50" r="45" fill="none" stroke="#c62828" strokeWidth="2" />
                 <circle cx="50" cy="50" r="38" fill="#e3f2fd" />
+                
                 <text x="50" y="42" textAnchor="middle" fontSize="8" fill="#c62828" fontWeight="bold">विश्व पत्रकार</text>
                 <text x="50" y="56" textAnchor="middle" fontSize="8" fill="#c62828" fontWeight="bold">महासंघ</text>
               </svg>
@@ -42,9 +43,10 @@ const IDCard = forwardRef(({ data, photoPreview, onPhotoClick }, ref) => {
           </div>
 
           <div className="org-name">विश्व पत्रकार महासंघ </div>
-          <div className="org-subtitle">(पत्रकारों का वैश्विक पंजीकृत संगठन)</div>
+          <div className="org-subtitle">(पत्रकारों का वैश्विक पंजीकृत संगठन) का उपक्रम</div>
+          {/* <div className="org-subtitles">का उपक्रम </div> */}
+          <div className="vasristh" >वरिष्ठ नागरिक अधिकार मंच </div>
           <div className="contact-info">
-            <div className="org-subbtitle"><h3>वरिष्ठ नागरिक अधिकार मंच</h3> </div>
             E-mail:info.vpm2006@gmail.com | WebSite: vpmh.org<br />
             Office No.: 7084250799, 6393287185
           </div>

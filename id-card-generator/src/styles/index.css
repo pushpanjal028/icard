@@ -503,3 +503,23 @@ body {
   .info-label { min-width: 90px; font-size: 13px; }
   .info-value { font-size: 13px; }
 }
+.vasristh{
+  text-align: center;
+  color:#c62828;
+  font-size: 20px;
+  line-height: 0.6;
+  font-weight: 700;
+}
+
+.org-subtitles{
+  padding-top: 5px;
+  text-align: center;
+  color:#1a237e;
+  font-size: 16px;
+  font-weight: 700; 
+  line-height: 1.2;
+}
+
+.org-subtitle{
+line-height: 1.2;
+}
