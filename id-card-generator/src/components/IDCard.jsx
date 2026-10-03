@@ -2,7 +2,7 @@ import { forwardRef } from 'react'
 
 
 
-const IDCard = forwardRef(({ data, photoPreview, onPhotoClick }, ref) => {
+const IDCard = forwardRef(({ data, photoPreview, onPhotoClick, showFederationName = true }, ref) => {
   const {
     cardNo, name, designation, area, address, mobile,
     validFromFormatted, validToFormatted, regDate
@@ -45,7 +45,7 @@ const IDCard = forwardRef(({ data, photoPreview, onPhotoClick }, ref) => {
           <div className="org-name">विश्व पत्रकार महासंघ </div>
           <div className="org-subtitle">(पत्रकारों का वैश्विक पंजीकृत संगठन) का उपक्रम</div>
           {/* <div className="org-subtitles">का उपक्रम </div> */}
-          <div className="vasristh" >वरिष्ठ नागरिक अधिकार मंच </div>
+          {showFederationName && <div className="vasristh">वरिष्ठ नागरिक अधिकार मंच </div>}
           <div className="contact-info">
             E-mail:info.vpm2006@gmail.com | WebSite: vpmh.org<br />
             Office No.: 7084250799, 6393287185

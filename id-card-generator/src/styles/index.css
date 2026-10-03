@@ -523,3 +523,7 @@ body {
 .org-subtitle{
 line-height: 1.2;
 }
+
+.card-body{
+  line-height: 1.2;
+}

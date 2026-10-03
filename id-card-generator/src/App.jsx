@@ -18,6 +18,7 @@ function App() {
   })
 
   const [photoPreview, setPhotoPreview] = useState(null)
+  const [showFederationName, setShowFederationName] = useState(true)
   const cardRef = useRef(null)
   const fileInputRef = useRef(null)
 
@@ -222,6 +223,21 @@ const downloadCard = useCallback(async () => {
               </div>
             </div>
 
+            <div className="form-row" style={{ marginTop: '10px', marginBottom: '20px' }}>
+              <div className="form-group" style={{ flexDirection: 'row', alignItems: 'center', gap: '10px' }}>
+                <input
+                  type="checkbox"
+                  id="showFederationName"
+                  checked={showFederationName}
+                  onChange={(e) => setShowFederationName(e.target.checked)}
+                  style={{ width: 'auto', margin: 0 }}
+                />
+                <label htmlFor="showFederationName" style={{ margin: 0, cursor: 'pointer', fontWeight: 'bold' }}>
+                  Show "वरिष्ठ पत्रकार महासंघ" / "विश्व पत्रकार महासंघ" Heading
+                </label>
+              </div>
+            </div>
+
             <div className="form-actions">
               <button className="btn btn-primary" onClick={downloadCard}>
                 📥 Download ID Card
@@ -248,6 +264,7 @@ const downloadCard = useCallback(async () => {
               }}
               photoPreview={photoPreview}
               onPhotoClick={triggerPhotoUpload}
+              showFederationName={showFederationName}
             />
           </div>
         </div>
