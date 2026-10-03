@@ -58,15 +58,21 @@ const downloadCard = useCallback(async () => {
   await new Promise(resolve => setTimeout(resolve, 1000))
   
   try {
+    const scale = 3; // Increase resolution by 3x for print quality
+    const baseWidth = cardRef.current.offsetWidth + 30;
+    const baseHeight = cardRef.current.offsetHeight + 30;
+
     // Wrapper se download karo, card se nahi
     const dataUrl = await domtoimage.toPng(cardRef.current, {
       quality: 1,
       bgcolor: '#ffffff',
-      width: cardRef.current.offsetWidth + 30,    /* ← padding include */
-      height: cardRef.current.offsetHeight + 30,
+      width: baseWidth * scale,
+      height: baseHeight * scale,
       style: {
-        margin: '15px',        /* ← force margin */
-        padding: '15px',       /* ← force padding */
+        transform: `scale(${scale})`,
+        transformOrigin: 'top left',
+        margin: '15px',
+        padding: '15px',
         backgroundColor: 'white'
       }
     })

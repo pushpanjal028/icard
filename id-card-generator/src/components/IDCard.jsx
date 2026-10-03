@@ -43,7 +43,9 @@ const IDCard = forwardRef(({ data, photoPreview, onPhotoClick, showFederationNam
           </div>
 
           <div className="org-name">विश्व पत्रकार महासंघ </div>
-          <div className="org-subtitle">(पत्रकारों का वैश्विक पंजीकृत संगठन) का उपक्रम</div>
+          <div className="org-subtitle">
+            (पत्रकारों का वैश्विक पंजीकृत संगठन){showFederationName && " का उपक्रम"}
+          </div>
           {/* <div className="org-subtitles">का उपक्रम </div> */}
           {showFederationName && <div className="vasristh">वरिष्ठ नागरिक अधिकार मंच </div>}
           <div className="contact-info">
